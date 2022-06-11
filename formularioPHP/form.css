@@ -1,0 +1,69 @@
+.faleconscoform {
+  margin: 2em auto 0.7em auto;
+  text-align: center;
+  font-size: 30px;
+  font-family: "Open Sans", sans-serif;
+}
+#form-div {
+  font-family: "Open Sans", sans-serif;
+  width: 95%;
+  height: auto;
+  margin: 2em auto;
+  display: flex;
+  flex-direction: column;
+  background-color: #00a9cbe7;
+  justify-content: center;
+  box-shadow: 0.5px 0.5px 25px #000405e7;
+  align-items: center;
+  border-radius: 120px 3px;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+.form-coluna {
+  margin: 2.5em;
+  color: rgba(0, 0, 0, 0.686);
+}
+.form-coluna:nth-child(3) {
+  display: flex;
+  flex-direction: column;
+}
+.form-coluna:nth-child(4) {
+  text-align: center;
+}
+
+.form-coluna input {
+  border: white;
+  padding: 0.5em;
+}
+.form-coluna input:active {
+  background-color: #00a9cbe7;
+}
+textarea {
+  height: 180px;
+  border: white;
+}
+.form-label-textarea {
+  margin-bottom: 0.4em;
+}
+.form-btn {
+  color: rgba(0, 0, 0, 0.837);
+  font-size: 20px;
+  padding: 10px 40px;
+  border: #00a9cbe7 1px solid;
+  border-radius: 5px;
+}
+@media screen and (min-width: 765px) {
+  #form-div {
+    width: 50%;
+  }
+}
+@media screen and (min-width: 1000px) {
+  #form-div {
+    width: 40%;
+  }
+}
+@media screen and (min-width: 1300px) {
+  #form-div {
+    width: 35%;
+  }
+}
