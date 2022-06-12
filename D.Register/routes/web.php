@@ -1,6 +1,7 @@
 <?php
 
-use App\Http\Controllers\GeralController;
+use App\Http\Controllers\MainController;
+use App\Http\Controllers\AuthController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,7 +15,5 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-Route::get('/painel',[GeralController::class,'index']);
+Route::get('/',[AuthController::class,'index']);
+Route::get('/painel',[MainController::class,'index']);
