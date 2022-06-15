@@ -14,8 +14,8 @@ return new class extends Migration
     public function up()
     {
         Schema::create('series', function (Blueprint $table) {
-            $table->id()->unique();
-            $table->string(column:'nome');
+            $table->id();
+            $table->string('nome', 128);
             $table->timestamps();
         });
     }
