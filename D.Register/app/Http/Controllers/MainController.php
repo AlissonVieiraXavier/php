@@ -11,4 +11,8 @@ class MainController extends Controller
     {   
         return view('Pages.painel');
     }
+    public function create(){
+        return view('Pages.novo');
+
+    }
 }

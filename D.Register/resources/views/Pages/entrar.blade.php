@@ -15,7 +15,7 @@
         <h1> Seja bem vindo ao Document Register </h1>
         <div class="about">
         <p> O Melhor software de controle de notas fiscais e outros documentos.</p>
-        <img href="{{asset('img/')}}"></img>
+        <img href="{{asset('img/img1.png')}}"></img>
         </div>
         
     </header>

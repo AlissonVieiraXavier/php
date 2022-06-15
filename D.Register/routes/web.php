@@ -17,6 +17,9 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/',[AuthController::class,'index']);
 Route::get('/painel',[MainController::class,'index']);
+Route::get('/novo',function(){
+    return 'novo';
+});
 
 Auth::routes();
 
