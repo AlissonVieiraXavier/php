@@ -1,0 +1,4 @@
+https://imasters.com.br/php/como-fazer-um-crud-no-laravel-do-zero-parte-1
+
+
+só seguir e dar um ctrl f 
