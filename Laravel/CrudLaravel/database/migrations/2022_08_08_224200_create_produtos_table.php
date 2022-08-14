@@ -16,7 +16,8 @@ return new class extends Migration
         Schema::create('produtos', function (Blueprint $table) {
             $table->id();
             $table->string('nome');//esse campo espera um texto
-            $table->decimal('custo',19,2);//este campo espera um tipo decimal
+            $table->decimal('custo');//este campo espera um tipo decimal
+            $table->decimal('preco');//este campo espera um tipo decimal
             $table->integer('quantidade');//esse campo espera um tipo inteiro
             $table->timestamps();
         });

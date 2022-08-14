@@ -7,18 +7,18 @@
     <title>Cadastrar um novo Produto</title>
 </head>
 <body>
-   <form action="">
-    <label for="">Nome</label>
-    inpu
+   <form action="{{route('registrarProduto')}}" method="POST">
+   @csrf
+        <label for="nome">Nome</label>
+        <input type="text" name="nome">
+        <label for="custo">Custo</label>
+        <input type="text" name="custo">
+        <label for="preco">Preço</label>
+        <input type="text" name="preco">
+        <label for="quntidade">Quantidade</label>
+        <input type="text" name="quantidade">
+        <button>Registrar</button>
    </form>   
 
-
-   <!-- Vamos começar criando uma página com um formulário simples, como o nosso foco nesse tutorial é o Laravel utilizaremos os recursos mais básicos do html, apenas para conseguirmos preencher e enviar um formulário, ok?
-
-O Laravel por padrão armazena e reconhece seus arquivos de páginas html em resources/views, localize esse diretório e crie uma pasta chamada produtos, em seguida, dentro dessa nova pasta, crie um arquivo chamado create.blade.php.
-
-Edite o seu novo arquivo, create.blade.php, para que fique desta forma:
-
--->
 </body>
 </html>
