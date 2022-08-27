@@ -12,13 +12,13 @@
             <h3>Nome:</h3><p>{{ $produto->nome }}</p>
         </div>
         <div class="camporesultado_divs">
-            <h3>Nome:</h3><p>{{ $produto->custo }}</p>
+            <h3>Custo:</h3><p>{{ $produto->custo }}</p>
         </div>
         <div class="camporesultado_divs">
-            <h3>Nome:</h3><p>{{ $produto->preco }}</p>
+            <h3>Preço:</h3><p>{{ $produto->preco }}</p>
         </div>
         <div class="camporesultado_divs">
-            <h3>Nome:</h3><p>{{ $produto->quantidade }}</p>
+            <h3>quantidade:</h3><p>{{ $produto->quantidade }}</p>
         </div>
     </div>
 </body>
