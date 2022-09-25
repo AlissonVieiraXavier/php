@@ -53,6 +53,15 @@ table {
 	border-collapse: collapse;
 	border-spacing: 0;
 }
+.topnav{
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+}
+.account{
+	margin:1em 0px 0px 0px;
+	font-size: 20px;
+}
 
 /*navbar*/
 
@@ -86,17 +95,24 @@ table {
 	
   }
 
-.dropmenu{width: 100%;}
+.dropmenu{
+	width: 100%;
+	display:flex;
+	flex-direction: column;
+	background-color: var(--second-gren);
+}
 .sponsored{
 	display:flex;
-	flex-direction: row;
+	flex-direction: column;
 	width: 100%;
+
 }
 .sponsored h3{
-	padding-top:20px ;
+	padding-top:20px;
+	margin-left: 10px;
 }
 .logo_patrocinio{
-	width:10%;
+	width:80px;
 }
   
 /*content*/
