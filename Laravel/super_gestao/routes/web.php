@@ -9,4 +9,7 @@ use App\Http\Controllers\ContatoController;
 Route::get('/', [PrincipalController::class, 'index']);
 Route::get('/sobre-nos', [SobreNosController::class, 'index']);
 Route::get('/contato',[ContatoController::class,'index']);
+Route::get('/contato/{name}', function (string $name) {
+      return "hello there!  ".$name;                          
+});
 
