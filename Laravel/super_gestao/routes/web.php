@@ -10,6 +10,7 @@ use App\Http\Controllers\FornecedorController;
 Route::get('/', [PrincipalController::class, 'index'])->name('site.index');
 Route::get('/sobre-nos', [SobreNosController::class, 'index'])->name('site.sobre-nos');
 Route::get('/contato',[ContatoController::class,'index'])->name('site.contato');
+Route::post('/contato',[ContatoController::class,'index'])->name('site.contato');
 Route::get('/login',function (){ return 'login';})->name('site.login');
 
 Route::prefix('/app')->group(function(){
