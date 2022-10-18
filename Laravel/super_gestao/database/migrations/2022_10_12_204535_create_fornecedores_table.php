@@ -17,6 +17,8 @@ return new class extends Migration
             $table->id();
             $table->string('nome', 50);
             $table->timestamps();
+            $table->string('site',150);
+            
         });
     }
 
