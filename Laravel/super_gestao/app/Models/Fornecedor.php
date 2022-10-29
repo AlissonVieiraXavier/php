@@ -7,5 +7,11 @@ use Illuminate\Database\Eloquent\Model;
 
 class Fornecedor extends Model
 {
-    use HasFactory;
+    //use HasFactory;
+    protected $table = 'fornecedores';
+    protected $fillable = ['nome','uf','email'];
+
+
 }
+//tinker;
+//>>> \App\Models\Fornecedor::create(['nome'=>'hu','uf'=>'PR','email'=>'email@email.com']);

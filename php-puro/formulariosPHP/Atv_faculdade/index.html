@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            box-sizing: border-box;
+        }
+        body{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+    </style>
+</head>
+<body>
+    <form action="./boas_vindas.php" method="post">
+        <label for="user">Usuario:</label>
+        <input class="input1" type="text" required>
+        <label for="password">Senha:</label>
+        <input class="input2" type="password" required>
+        <button type="submit">Logar</button>
+        <button  type="button" onclick="limpacampos()" class="cancel">Cancelar</button >
+    </form>
+
+    <script>
+      function limpacampos(){
+       document.querySelector('.input1').value = ''
+       document.querySelector('.input2').value = ''
+      }
+    </script>
+</body>
+</html>
