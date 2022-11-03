@@ -18,6 +18,8 @@ return new class extends Migration
             $table->string('nome', 50);
             $table->timestamps();
             $table->string('site',150);
+            $table->string('uf',2);
+            $table->string('email',150);
             
         });
     }
