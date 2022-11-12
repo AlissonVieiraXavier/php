@@ -13,7 +13,7 @@ Route::get('/contato',[ContatoController::class,'index'])->name('site.contato');
 Route::post('/requisicao-contato',[ContatoController::class,'create'])->name('site.req-contato');
 Route::get('/login',function (){ return 'login';})->name('site.login');
 
-Route::prefix('/app')->group(function(){
+Route::prefix('/app')->middleware('autenticacao:default,visitante')->group(function(){
       Route::get('/clientes',function (){ return 'clientes';});
       Route::get('/fornecedor',[FornecedorController::class,'index']);
       Route::get('/produtos',function (){ return 'produtos';});

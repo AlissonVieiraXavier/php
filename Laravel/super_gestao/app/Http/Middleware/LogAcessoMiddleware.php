@@ -23,6 +23,7 @@ class LogAcessoMiddleware
         LogAcesso::create(['log'=>"Acesso registrado pelo ip: $ip e rota $path"]);
         
         //return Response('request impacada'); 
+        return $next($request);
 
     }
 }
