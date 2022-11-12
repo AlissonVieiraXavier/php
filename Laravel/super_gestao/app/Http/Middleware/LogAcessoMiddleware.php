@@ -2,6 +2,7 @@
 
 namespace App\Http\Middleware;
 
+use App\Models\LogAcesso;
 use Closure;
 use Illuminate\Http\Request;
 
@@ -15,10 +16,13 @@ class LogAcessoMiddleware
      * @return \Illuminate\Http\Response|\Illuminate\Http\RedirectResponse
      */
     public function handle(Request $request, Closure $next)
-    {
-        //request manipular
-        //return $next($request);
-        //response
-        return Response('nhe'); 
+    {   
+        $ip = $request->server->get('REMOTE_ADDR');
+        $path = $request->getRequestUri();
+
+        LogAcesso::create(['log'=>"Acesso registrado pelo ip: $ip e rota $path"]);
+        
+        //return Response('request impacada'); 
+
     }
 }
