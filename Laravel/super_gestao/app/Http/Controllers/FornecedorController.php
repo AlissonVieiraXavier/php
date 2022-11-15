@@ -2,29 +2,48 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Fornecedor;
 use Illuminate\Http\Request;
 
 class FornecedorController extends Controller
 {
     public function index()
     {
-        $fornecedor =[ 
-            0 => ['nome' => 'joão', 'status' => 'S'],
-            1 => ['nome' => 'joão', 'status' => 'N'],
-            2 => ['nome' => 'joão', 'status' => 'S'],
-            3 => ['nome' => 'joão', 'status' => 'N'],
-            4 => ['nome' => 'joão', 'status' => 'S'],
-            5 => ['nome' => 'joão', 'status' => 'N'],
-            6 => ['nome' => 'joão', 'status' => 'S'],
-            7 => ['nome' => 'joão', 'status' => 'N'],
-            8 => ['nome' => 'joão', 'status' => 'S'],
-            9 => ['nome' => 'joão', 'status' => 'N'],
-           10 => ['nome' => 'maria', 'status' => 'S'],
-           11 => ['nome' => 'maria', 'status' => 'N'],
-           12 => ['nome' => 'maria', 'status' => 'S'],
-           13 => ['nome' => 'maria', 'status' => 'N'],
+        return view('app.fornecedor.index');
+    }
+    public function listar(Request $request)
+    {
+       $fornecedor = Fornecedor::where('nome','like','%'.$request->input('nome').'%')
+       ->where('site','like','%'.$request->input('site').'%')
+       ->where('uf','like','%'.$request->input('uf').'%')
+       ->where('email','like','%'.$request->input('email').'%')->get();
 
-        ];
-        return view('app.fornecedores', compact('fornecedor'));
+       //return dd($fornecedor);
+       return view('app.fornecedor.listar',['fornecedor' => $fornecedor]); 
+    }
+    public function adicionar(Request $request)
+    {
+       if($request->input('_token') != ""){
+
+          //validação
+          $request->validate([
+            'nome'=>'required',
+            'site'=>'required',
+            'uf'=>'required',
+            'email'=>'email | required'
+          ],[
+            'nome.required' => 'Nome invalido',
+            'site.required' => 'site invalido',
+            'uf.required' => 'UF invalido',
+            'email.email'=>'email invalido'
+          ]);
+          Fornecedor::create($request->all());
+
+         echo "<script>alert('Fornecedor adicicionado com sucesso!')</script>";
+       }
+       
+       return view('app.fornecedor.adicionar'); 
     }
 }
+
+//return view('app.fornecedor.index', compact('fornecedor'));
