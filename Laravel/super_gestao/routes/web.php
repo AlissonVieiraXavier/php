@@ -1,42 +1,38 @@
 <?php
 
+use App\Http\Controllers\ClienteFornecedorController;
 use App\Http\Controllers\PrincipalController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\SobreNosController;
 use App\Http\Controllers\ContatoController;
 use App\Http\Controllers\TesteController;
 use App\Http\Controllers\FornecedorController;
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\ProdutoController;
 
 Route::get('/', [PrincipalController::class, 'index'])->name('site.index');
 Route::get('/sobre-nos', [SobreNosController::class, 'index'])->name('site.sobre-nos');
 Route::get('/contato',[ContatoController::class,'index'])->name('site.contato');
 Route::post('/requisicao-contato',[ContatoController::class,'create'])->name('site.req-contato');
 
-Route::get('/login',[LoginController::class,'index'])->name('login.index');
+Route::get('/login/{erro?}',[LoginController::class,'index'])->name('login.index');
 Route::post('/loginAuth',[LoginController::class,'auth'])->name('login.auth');
 
 
-Route::prefix('/app')->middleware('autenticacao:default,visitante')->group(function(){
-      Route::get('/clientes',function (){ return 'clientes';});
-      Route::get('/fornecedor',[FornecedorController::class,'index']);
-      Route::get('/produtos',function (){ return 'produtos';});
+Route::prefix('/app')->middleware('autenticacao')->group(function(){
+      Route::get('/home',[HomeController::class,'index'])->name('app.home');
+      Route::get('/sair',[LoginController::class,'sair'])->name('app.sair');
+      Route::get('/cliente',[ClienteFornecedorController::class,'index'])->name('app.cliente');
+      Route::get('/fornecedor',[FornecedorController::class,'index'])->name('app.fornecedor');
+      Route::get('/produto',[ProdutoController::class,'index'])->name('app.produto');
 });
 
-//Redirects //////////////////////////////////
-
-Route::redirect('/route2','route1');
-Route::get('/route1', function(){
-         return 'route1';
-})->name('site.route1');
-Route::get('/route2', function(){   
-      return redirect()->route('site.route1');
-})->name('site.route2');
 
 //fallback_exemplo
-//Route::fallback(function(){
-//      return 'essa pagina não existe <a href="/" target="_blank">link pagina inicial</a>';
-//});
+Route::fallback(function(){
+      return 'essa pagina não existe <a href="/" target="_blank">link pagina inicial</a>';
+});
 
 ///////////////////////////////////////////////////
 

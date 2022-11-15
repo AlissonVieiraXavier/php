@@ -18,6 +18,12 @@
                 </form>
             </div>
         </div>
+        {{-- erros de autenticação  --}}
+        <div class="error_div">
+            {{isset($erro) && $erro != '' ? $erro : ''}}
+        </div>
+      
+        {{-- erros de digitação  --}}
         @if($errors->any())
         <div class="error_div">
             <ul>

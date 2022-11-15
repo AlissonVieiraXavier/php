@@ -7,9 +7,10 @@ use Illuminate\Http\Request;
 
 class LoginController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        return view('site.login');
+        $erro = $request->get('erro');
+        return view('site.login',['erro' => $erro]);
     }
     public function auth(Request $request)
     {   
@@ -22,14 +23,30 @@ class LoginController extends Controller
     ]);
 
     //verificando se o usuario existe na base
-    $name = $request->get('usuario');
+    $email = $request->get('usuario');
     $password = $request->get('senha');
     
     $user = new User();
-    $usuario = $user->where('email', $name)->where('password',$password)->get()->first();
+    $usuario = $user->where('email', $email)->where('password',$password)->get()->first();
 
-    echo '<pre>';
-    print_r($usuario);
-    echo '</pre>';
+    if(isset($usuario->name)){
+        session_start();
+        $_SESSION['name'] = $usuario->name;
+        $_SESSION['email'] = $usuario->email;
+        
+        return redirect()->route('app.cliente');
+    }else{
+        return redirect()->route('login.index',['erro' => 1]);
+    }
+    //echo '<pre>';
+    //print_r($usuario);
+    //echo '</pre>';
    }
+
+    public function sair()
+    {
+        //
+    }
+
+
 }
