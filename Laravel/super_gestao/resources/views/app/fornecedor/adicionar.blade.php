@@ -19,13 +19,13 @@
      <div>
         <form action="{{route('app.fornecedor.adicionar')}}" method="post">+
             @csrf
-            <input type="text" class="borda-preta" name="nome" placeholder="Nome">
+            <input type="text" class="borda-preta" value="{{$fornecedor->nome ?? old('nome')}}" name="nome" placeholder="Nome">
             {{$errors->has('nome') ? $errors->first('nome') : '' }}
-            <input type="text" class="borda-preta" name="site" placeholder="Site">
+            <input type="text" class="borda-preta" value="{{$fornecedor->site ?? old('site')}}" name="site" placeholder="Site">
             {{$errors->has('site') ? $errors->first('site') : '' }}
-            <input type="text" class="borda-preta" name="email" placeholder="email">
+            <input type="text" class="borda-preta" value="{{$fornecedor->email ?? old('email')}}" name="email" placeholder="email">
             {{$errors->has('email') ? $errors->first('email') : '' }}
-            <input type="text" class="borda-preta" name="uf" placeholder="UF">
+            <input type="text" class="borda-preta" value="{{$fornecedor->uf ?? old('uf')}}" name="uf" placeholder="UF">
             {{$errors->has('uf') ? $errors->first('uf') : '' }}
         <button type="submit" class="borda-preta"> Pesquisar </button>
         </form>

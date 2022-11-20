@@ -32,7 +32,7 @@
                     <td>{{$atributo->uf}}</td>
                     <td>{{$atributo->email}}</td>
                     <td> <a href="#">Excluir</a></td>
-                    <td> <a href="{{route('app.fornecedor.editar')}}">Editar</a></td>
+                    <td> <a href="{{route('app.fornecedor.editar', $atributo->id)}}">Editar</a></td>
                 </tr>    
             @endforeach
             </tbody>
